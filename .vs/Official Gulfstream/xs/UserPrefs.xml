@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{3DA0D023-9E6B-DDFA-6AF1-69D19C2CFB09}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ExampleTracker.cs">
+    <Files>
+      <File FileName="Assets/ExampleTracker.cs" Line="46" Column="57" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Official Gulfstream" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="ExampleTracker.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Unity" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="04c0212d-e6a3-4d0d-b57f-496d39b7d618" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
