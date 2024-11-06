@@ -38,6 +38,7 @@ static const Il2CppRGCTXDefinition s_rgctxValues[4] =
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Object_FindObjectsOfType_TisT_tABA244D670AAB6CE1BA83DE404F13DE3F8BE2F7E_m781FF4481CB052B026C33AD72AA3B4CBE8566717 },
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_TU5BU5D_t10446CA40F85BC2ED3D7F43B61320F81A9964FD9 },
 };
+extern const Il2CppDebuggerMetadataRegistration g_DebuggerMetadataRegistrationUnity_XR_ARFoundation_InternalUtils;
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Unity_XR_ARFoundation_InternalUtils_CodeGenModule;
 const Il2CppCodeGenModule g_Unity_XR_ARFoundation_InternalUtils_CodeGenModule = 
 {
@@ -53,7 +54,7 @@ const Il2CppCodeGenModule g_Unity_XR_ARFoundation_InternalUtils_CodeGenModule =
 	s_rgctxIndices,
 	4,
 	s_rgctxValues,
-	NULL,
+	&g_DebuggerMetadataRegistrationUnity_XR_ARFoundation_InternalUtils,
 	NULL,
 	NULL,
 	NULL,
