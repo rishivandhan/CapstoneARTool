@@ -611,6 +611,8 @@ GameObject:
   - component: {fileID: 696375362}
   - component: {fileID: 696375364}
   - component: {fileID: 696375365}
+  - component: {fileID: 696375367}
+  - component: {fileID: 696375366}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -680,7 +682,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugText: {fileID: 297481642}
   trackedImageManager: {fileID: 696375364}
+  arAnchorManager: {fileID: 0}
   cube: {fileID: 1366077238}
+--- !u!114 &696375366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696375361}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb898793194e03f4bb10dba03ec2cb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DestroyOnRemoval: 1
+--- !u!114 &696375367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696375361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728ad7fae8e460a4ba41265c7308d757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AnchorPrefab: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
