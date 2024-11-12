@@ -1237,10 +1237,10 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "/Users/bokken/build/output/unity/unity/Modules/GameCenter/Managed/NetworkServices.cs", { 35, 207, 150, 193, 141, 58, 112, 141, 186, 90, 147, 58, 94, 28, 48, 167} },
-{ "/Users/bokken/build/output/unity/unity/Modules/GameCenter/Managed/LocalService.cs", { 3, 35, 34, 49, 24, 144, 193, 7, 245, 118, 155, 167, 88, 134, 112, 144} },
-{ "/Users/bokken/build/output/unity/unity/Modules/GameCenter/Managed/GameCenterServices.cs", { 248, 189, 174, 185, 49, 83, 252, 226, 156, 234, 77, 218, 126, 206, 50, 253} },
-{ "/Users/bokken/build/output/unity/unity/Modules/GameCenter/Public/GameCenterServices.bindings.cs", { 195, 136, 19, 42, 52, 83, 119, 86, 236, 128, 255, 227, 203, 229, 108, 49} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\GameCenter\\Managed\\NetworkServices.cs", { 35, 207, 150, 193, 141, 58, 112, 141, 186, 90, 147, 58, 94, 28, 48, 167} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\GameCenter\\Managed\\LocalService.cs", { 3, 35, 34, 49, 24, 144, 193, 7, 245, 118, 155, 167, 88, 134, 112, 144} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\GameCenter\\Managed\\GameCenterServices.cs", { 248, 189, 174, 185, 49, 83, 252, 226, 156, 234, 77, 218, 126, 206, 50, 253} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\GameCenter\\Public\\GameCenterServices.bindings.cs", { 195, 136, 19, 42, 52, 83, 119, 86, 236, 128, 255, 227, 203, 229, 108, 49} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

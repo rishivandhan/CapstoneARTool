@@ -735,19 +735,19 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/IntegratedSubsystem.bindings.cs", { 3, 117, 184, 168, 101, 203, 167, 67, 224, 70, 234, 16, 111, 238, 39, 146} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/IntegratedSubsystemDescriptor.bindings.cs", { 218, 5, 7, 201, 241, 108, 160, 245, 252, 132, 254, 141, 212, 198, 76, 54} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/Subsystem.deprecated.cs", { 93, 143, 42, 142, 2, 9, 43, 86, 171, 179, 172, 249, 26, 88, 36, 87} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/SubsystemDescriptor.deprecated.cs", { 17, 108, 236, 251, 241, 93, 167, 212, 32, 109, 41, 162, 200, 54, 24, 14} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/SubsystemManager.bindings.cs", { 178, 72, 99, 86, 65, 27, 7, 107, 125, 37, 126, 152, 147, 145, 172, 117} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/SubsystemManager.cs", { 24, 234, 141, 41, 240, 182, 165, 14, 141, 39, 38, 221, 229, 29, 65, 208} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/SubsystemManager.deprecated.cs", { 247, 159, 207, 247, 219, 233, 83, 64, 72, 19, 110, 197, 52, 97, 215, 57} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/SubsystemDescriptorStore.bindings.cs", { 114, 118, 45, 171, 142, 184, 148, 25, 148, 233, 185, 147, 225, 37, 84, 65} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/SubsystemDescriptorStore.cs", { 218, 40, 18, 140, 144, 240, 124, 165, 106, 63, 13, 133, 81, 37, 7, 2} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/SubsystemDescriptorStore.deprecated.cs", { 236, 180, 240, 70, 171, 242, 124, 21, 177, 4, 107, 90, 232, 143, 15, 87} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/SubsystemDescriptorWithProvider.cs", { 37, 61, 134, 118, 119, 252, 245, 6, 150, 233, 250, 237, 101, 49, 232, 244} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/SubsystemProvider.cs", { 155, 118, 139, 79, 201, 146, 102, 159, 72, 10, 70, 137, 50, 123, 52, 88} },
-{ "/Users/bokken/build/output/unity/unity/Modules/Subsystems/SubsystemWithProvider.cs", { 107, 9, 244, 113, 59, 231, 106, 72, 233, 122, 53, 191, 91, 109, 167, 228} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\IntegratedSubsystem.bindings.cs", { 3, 117, 184, 168, 101, 203, 167, 67, 224, 70, 234, 16, 111, 238, 39, 146} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\IntegratedSubsystemDescriptor.bindings.cs", { 218, 5, 7, 201, 241, 108, 160, 245, 252, 132, 254, 141, 212, 198, 76, 54} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\Subsystem.deprecated.cs", { 93, 143, 42, 142, 2, 9, 43, 86, 171, 179, 172, 249, 26, 88, 36, 87} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\SubsystemDescriptor.deprecated.cs", { 17, 108, 236, 251, 241, 93, 167, 212, 32, 109, 41, 162, 200, 54, 24, 14} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\SubsystemManager.bindings.cs", { 178, 72, 99, 86, 65, 27, 7, 107, 125, 37, 126, 152, 147, 145, 172, 117} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\SubsystemManager.cs", { 24, 234, 141, 41, 240, 182, 165, 14, 141, 39, 38, 221, 229, 29, 65, 208} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\SubsystemManager.deprecated.cs", { 247, 159, 207, 247, 219, 233, 83, 64, 72, 19, 110, 197, 52, 97, 215, 57} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\SubsystemDescriptorStore.bindings.cs", { 114, 118, 45, 171, 142, 184, 148, 25, 148, 233, 185, 147, 225, 37, 84, 65} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\SubsystemDescriptorStore.cs", { 218, 40, 18, 140, 144, 240, 124, 165, 106, 63, 13, 133, 81, 37, 7, 2} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\SubsystemDescriptorStore.deprecated.cs", { 236, 180, 240, 70, 171, 242, 124, 21, 177, 4, 107, 90, 232, 143, 15, 87} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\SubsystemDescriptorWithProvider.cs", { 37, 61, 134, 118, 119, 252, 245, 6, 150, 233, 250, 237, 101, 49, 232, 244} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\SubsystemProvider.cs", { 155, 118, 139, 79, 201, 146, 102, 159, 72, 10, 70, 137, 50, 123, 52, 88} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\Subsystems\\SubsystemWithProvider.cs", { 107, 9, 244, 113, 59, 231, 106, 72, 233, 122, 53, 191, 91, 109, 167, 228} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

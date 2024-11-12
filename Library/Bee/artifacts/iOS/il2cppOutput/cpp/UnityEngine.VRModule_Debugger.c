@@ -58,7 +58,7 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "/Users/bokken/build/output/unity/unity/Modules/VR/ScriptBindings/XR.bindings.cs", { 235, 229, 26, 237, 96, 202, 30, 137, 61, 24, 103, 210, 120, 86, 189, 121} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\VR\\ScriptBindings\\XR.bindings.cs", { 235, 229, 26, 237, 96, 202, 30, 137, 61, 24, 103, 210, 120, 86, 189, 121} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

@@ -60,7 +60,7 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/InternalUtils/FindObjectsUtility.cs", { 42, 98, 5, 131, 164, 95, 182, 126, 226, 35, 42, 71, 253, 136, 66, 76} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\InternalUtils\\FindObjectsUtility.cs", { 42, 98, 5, 131, 164, 95, 182, 126, 226, 35, 42, 71, 253, 136, 66, 76} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

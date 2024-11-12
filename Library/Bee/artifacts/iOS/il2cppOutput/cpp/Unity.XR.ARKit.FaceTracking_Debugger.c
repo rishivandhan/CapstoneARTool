@@ -340,7 +340,7 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "./Library/PackageCache/com.unity.xr.arkit@5.1.5/Runtime/FaceTracking/ARKitFaceSubsystem.cs", { 188, 49, 99, 114, 248, 243, 187, 101, 220, 235, 136, 2, 77, 120, 227, 63} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arkit@5.1.5\\Runtime\\FaceTracking\\ARKitFaceSubsystem.cs", { 188, 49, 99, 114, 248, 243, 187, 101, 220, 235, 136, 2, 77, 120, 227, 63} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

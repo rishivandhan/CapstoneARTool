@@ -430,19 +430,19 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/ARAnchorManagerListener.cs", { 56, 83, 132, 41, 148, 233, 143, 55, 66, 10, 150, 142, 163, 52, 1, 134} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/ARCameraManagerListener.cs", { 210, 152, 28, 149, 78, 116, 8, 1, 229, 23, 32, 121, 188, 245, 25, 53} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/AREnvironmentProbeManagerListener.cs", { 15, 46, 122, 103, 50, 39, 244, 233, 252, 72, 217, 208, 186, 168, 35, 170} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/ARFaceListener.cs", { 76, 29, 49, 105, 69, 205, 202, 233, 232, 243, 169, 38, 51, 165, 36, 220} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/ARFaceManagerListener.cs", { 0, 230, 70, 234, 134, 118, 203, 186, 240, 255, 254, 245, 142, 181, 25, 171} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/ARHumanBodyManagerListener.cs", { 37, 136, 234, 168, 173, 170, 172, 177, 40, 47, 247, 244, 21, 21, 82, 99} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/ARParticipantManagerListener.cs", { 208, 142, 72, 155, 173, 19, 100, 181, 0, 141, 243, 193, 246, 132, 237, 247} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/ARPlaneManagerListener.cs", { 34, 237, 210, 85, 64, 40, 202, 147, 149, 168, 113, 60, 5, 38, 41, 120} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/ARPointCloudManagerListener.cs", { 201, 92, 230, 198, 36, 34, 190, 164, 220, 191, 119, 149, 121, 54, 151, 236} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/ARTrackedImageManagerListener.cs", { 91, 242, 11, 198, 115, 72, 62, 150, 192, 81, 222, 112, 6, 53, 68, 185} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/ARTrackedObjectManagerListener.cs", { 45, 225, 70, 160, 65, 253, 146, 100, 150, 133, 106, 16, 94, 42, 239, 169} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/Events/MessageListeners/TrackableManagerListener.cs", { 249, 86, 196, 51, 206, 20, 184, 179, 60, 20, 199, 101, 14, 159, 76, 126} },
-{ "./Library/PackageCache/com.unity.xr.arfoundation@5.1.5/Runtime/VisualScripting/Units/GetTrackablesUnit.cs", { 205, 100, 216, 152, 217, 199, 107, 160, 11, 27, 230, 151, 220, 14, 109, 229} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\ARAnchorManagerListener.cs", { 56, 83, 132, 41, 148, 233, 143, 55, 66, 10, 150, 142, 163, 52, 1, 134} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\ARCameraManagerListener.cs", { 210, 152, 28, 149, 78, 116, 8, 1, 229, 23, 32, 121, 188, 245, 25, 53} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\AREnvironmentProbeManagerListener.cs", { 15, 46, 122, 103, 50, 39, 244, 233, 252, 72, 217, 208, 186, 168, 35, 170} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\ARFaceListener.cs", { 76, 29, 49, 105, 69, 205, 202, 233, 232, 243, 169, 38, 51, 165, 36, 220} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\ARFaceManagerListener.cs", { 0, 230, 70, 234, 134, 118, 203, 186, 240, 255, 254, 245, 142, 181, 25, 171} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\ARHumanBodyManagerListener.cs", { 37, 136, 234, 168, 173, 170, 172, 177, 40, 47, 247, 244, 21, 21, 82, 99} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\ARParticipantManagerListener.cs", { 208, 142, 72, 155, 173, 19, 100, 181, 0, 141, 243, 193, 246, 132, 237, 247} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\ARPlaneManagerListener.cs", { 34, 237, 210, 85, 64, 40, 202, 147, 149, 168, 113, 60, 5, 38, 41, 120} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\ARPointCloudManagerListener.cs", { 201, 92, 230, 198, 36, 34, 190, 164, 220, 191, 119, 149, 121, 54, 151, 236} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\ARTrackedImageManagerListener.cs", { 91, 242, 11, 198, 115, 72, 62, 150, 192, 81, 222, 112, 6, 53, 68, 185} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\ARTrackedObjectManagerListener.cs", { 45, 225, 70, 160, 65, 253, 146, 100, 150, 133, 106, 16, 94, 42, 239, 169} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\Events\\MessageListeners\\TrackableManagerListener.cs", { 249, 86, 196, 51, 206, 20, 184, 179, 60, 20, 199, 101, 14, 159, 76, 126} },
+{ ".\\Library\\PackageCache\\com.unity.xr.arfoundation@5.1.5\\Runtime\\VisualScripting\\Units\\GetTrackablesUnit.cs", { 205, 100, 216, 152, 217, 199, 107, 160, 11, 27, 230, 151, 220, 14, 109, 229} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

@@ -102,7 +102,7 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "/Users/bokken/build/output/unity/unity/Modules/JSONSerialize/Public/JsonUtility.bindings.cs", { 172, 37, 124, 247, 142, 68, 238, 238, 204, 96, 145, 144, 249, 86, 105, 7} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\JSONSerialize\\Public\\JsonUtility.bindings.cs", { 172, 37, 124, 247, 142, 68, 238, 238, 204, 96, 145, 144, 249, 86, 105, 7} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

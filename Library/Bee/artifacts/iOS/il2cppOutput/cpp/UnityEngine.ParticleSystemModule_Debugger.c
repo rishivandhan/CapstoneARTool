@@ -202,10 +202,10 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "/Users/bokken/build/output/unity/unity/Modules/ParticleSystem/Managed/ParticleSystem.deprecated.cs", { 254, 108, 111, 128, 100, 7, 222, 4, 156, 244, 245, 164, 175, 217, 189, 197} },
-{ "/Users/bokken/build/output/unity/unity/Modules/ParticleSystem/ScriptBindings/ParticleSystem.bindings.cs", { 118, 47, 211, 194, 74, 62, 54, 154, 37, 241, 103, 20, 118, 163, 229, 151} },
-{ "/Users/bokken/build/output/unity/unity/Modules/ParticleSystem/ScriptBindings/ParticleSystemModules.bindings.cs", { 31, 109, 6, 179, 222, 12, 87, 83, 134, 236, 38, 5, 227, 196, 195, 71} },
-{ "/Users/bokken/build/output/unity/unity/Modules/ParticleSystem/Managed/ParticleSystemStructs.cs", { 27, 1, 61, 38, 216, 157, 174, 33, 136, 103, 175, 238, 186, 214, 97, 182} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\ParticleSystem\\Managed\\ParticleSystem.deprecated.cs", { 254, 108, 111, 128, 100, 7, 222, 4, 156, 244, 245, 164, 175, 217, 189, 197} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\ParticleSystem\\ScriptBindings\\ParticleSystem.bindings.cs", { 118, 47, 211, 194, 74, 62, 54, 154, 37, 241, 103, 20, 118, 163, 229, 151} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\ParticleSystem\\ScriptBindings\\ParticleSystemModules.bindings.cs", { 31, 109, 6, 179, 222, 12, 87, 83, 134, 236, 38, 5, 227, 196, 195, 71} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\ParticleSystem\\Managed\\ParticleSystemStructs.cs", { 27, 1, 61, 38, 216, 157, 174, 33, 136, 103, 175, 238, 186, 214, 97, 182} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

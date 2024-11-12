@@ -269,9 +269,9 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "/Users/rishimusuvathi/Unity Projects/Official Gulfstream/Assets/ExampleTracker.cs", { 147, 29, 129, 53, 72, 55, 178, 218, 101, 112, 0, 220, 82, 153, 137, 42} },
-{ "/Users/rishimusuvathi/Unity Projects/Official Gulfstream/Assets/main.cs", { 206, 202, 254, 193, 196, 140, 167, 224, 125, 60, 119, 195, 143, 120, 148, 211} },
-{ "/Users/rishimusuvathi/Unity Projects/Official Gulfstream/Unity.SourceGenerators/Unity.MonoScriptGenerator.MonoScriptInfoGenerator/AssemblyMonoScriptTypes.generated.cs", { 248, 218, 206, 145, 133, 164, 253, 153, 178, 76, 116, 193, 204, 130, 38, 110} },
+{ "C:\\Users\\nate_nh2b4yt\\Desktop\\vscode-workspace\\CapstoneARTool\\Assets\\ExampleTracker.cs", { 38, 122, 132, 56, 202, 63, 247, 211, 45, 161, 193, 106, 212, 58, 160, 25} },
+{ "C:\\Users\\nate_nh2b4yt\\Desktop\\vscode-workspace\\CapstoneARTool\\Assets\\main.cs", { 252, 252, 188, 52, 241, 227, 116, 122, 100, 11, 221, 172, 168, 45, 105, 52} },
+{ "C:\\Users\\nate_nh2b4yt\\Desktop\\vscode-workspace\\CapstoneARTool\\Unity.SourceGenerators\\Unity.MonoScriptGenerator.MonoScriptInfoGenerator\\AssemblyMonoScriptTypes.generated.cs", { 111, 43, 118, 67, 15, 181, 90, 1, 95, 21, 175, 129, 127, 241, 114, 230} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

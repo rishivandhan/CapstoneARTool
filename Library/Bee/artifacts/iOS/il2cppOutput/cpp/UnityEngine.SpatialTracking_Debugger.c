@@ -479,8 +479,8 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "./Library/PackageCache/com.unity.xr.legacyinputhelpers@2.1.10/Runtime/TrackedPoseDriver/TrackedPoseDriver.cs", { 105, 83, 106, 0, 153, 41, 159, 246, 74, 252, 222, 4, 66, 236, 48, 144} },
-{ "./Library/PackageCache/com.unity.xr.legacyinputhelpers@2.1.10/Runtime/TrackedPoseDriver/BasePoseProvider.cs", { 185, 200, 178, 225, 223, 238, 139, 78, 81, 146, 31, 173, 250, 91, 212, 132} },
+{ ".\\Library\\PackageCache\\com.unity.xr.legacyinputhelpers@2.1.10\\Runtime\\TrackedPoseDriver\\TrackedPoseDriver.cs", { 105, 83, 106, 0, 153, 41, 159, 246, 74, 252, 222, 4, 66, 236, 48, 144} },
+{ ".\\Library\\PackageCache\\com.unity.xr.legacyinputhelpers@2.1.10\\Runtime\\TrackedPoseDriver\\BasePoseProvider.cs", { 185, 200, 178, 225, 223, 238, 139, 78, 81, 146, 31, 173, 250, 91, 212, 132} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

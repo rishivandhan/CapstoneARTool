@@ -1085,12 +1085,12 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "/Users/bokken/build/output/unity/unity/Modules/XR/ScriptBindings/InputTracking.cs", { 46, 120, 65, 202, 187, 122, 0, 64, 166, 25, 162, 202, 108, 30, 188, 128} },
-{ "/Users/bokken/build/output/unity/unity/Modules/XR/ScriptBindings/XRInput.bindings.cs", { 130, 238, 204, 254, 194, 110, 111, 63, 253, 183, 205, 40, 180, 179, 172, 231} },
-{ "/Users/bokken/build/output/unity/unity/Modules/XR/ScriptBindings/VRNodeState.cs", { 79, 98, 102, 2, 190, 153, 158, 156, 153, 86, 157, 30, 38, 244, 169, 254} },
-{ "/Users/bokken/build/output/unity/unity/Modules/XR/Subsystems/Display/XRDisplaySubsystem.bindings.cs", { 98, 193, 120, 54, 150, 24, 162, 180, 134, 191, 192, 24, 153, 79, 10, 120} },
-{ "/Users/bokken/build/output/unity/unity/Modules/XR/Subsystems/Input/XRInputSubsystem.bindings.cs", { 0, 175, 104, 6, 151, 173, 163, 155, 40, 172, 138, 29, 34, 76, 4, 5} },
-{ "/Users/bokken/build/output/unity/unity/Modules/XR/Subsystems/Meshing/XRMeshSubsystem.bindings.cs", { 150, 80, 122, 12, 195, 135, 40, 58, 238, 133, 47, 204, 77, 114, 20, 190} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\XR\\ScriptBindings\\InputTracking.cs", { 46, 120, 65, 202, 187, 122, 0, 64, 166, 25, 162, 202, 108, 30, 188, 128} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\XR\\ScriptBindings\\XRInput.bindings.cs", { 130, 238, 204, 254, 194, 110, 111, 63, 253, 183, 205, 40, 180, 179, 172, 231} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\XR\\ScriptBindings\\VRNodeState.cs", { 79, 98, 102, 2, 190, 153, 158, 156, 153, 86, 157, 30, 38, 244, 169, 254} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\XR\\Subsystems\\Display\\XRDisplaySubsystem.bindings.cs", { 98, 193, 120, 54, 150, 24, 162, 180, 134, 191, 192, 24, 153, 79, 10, 120} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\XR\\Subsystems\\Input\\XRInputSubsystem.bindings.cs", { 0, 175, 104, 6, 151, 173, 163, 155, 40, 172, 138, 29, 34, 76, 4, 5} },
+{ "\\Users\\bokken\\build\\output\\unity\\unity\\Modules\\XR\\Subsystems\\Meshing\\XRMeshSubsystem.bindings.cs", { 150, 80, 122, 12, 195, 135, 40, 58, 238, 133, 47, 204, 77, 114, 20, 190} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

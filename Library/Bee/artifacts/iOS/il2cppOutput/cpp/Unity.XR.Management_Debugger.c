@@ -874,13 +874,13 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "./Unity.SourceGenerators/Unity.MonoScriptGenerator.MonoScriptInfoGenerator/AssemblyMonoScriptTypes.generated.cs", { 81, 216, 126, 119, 142, 215, 201, 161, 217, 33, 87, 213, 110, 5, 40, 202} },
-{ "./Library/PackageCache/com.unity.xr.management@4.5.0/Runtime/XRConfigurationData.cs", { 66, 76, 189, 32, 76, 234, 62, 242, 197, 54, 134, 160, 76, 89, 117, 181} },
-{ "./Library/PackageCache/com.unity.xr.management@4.5.0/Runtime/XRGeneralSettings.cs", { 28, 95, 59, 182, 78, 27, 45, 133, 215, 239, 135, 132, 124, 191, 43, 17} },
-{ "./Library/PackageCache/com.unity.xr.management@4.5.0/Runtime/XRLoader.cs", { 221, 124, 172, 64, 76, 182, 217, 132, 126, 79, 26, 58, 218, 39, 240, 129} },
-{ "./Library/PackageCache/com.unity.xr.management@4.5.0/Runtime/XRLoaderHelper.cs", { 92, 8, 51, 241, 33, 125, 106, 150, 206, 238, 169, 177, 58, 121, 24, 141} },
-{ "./Library/PackageCache/com.unity.xr.management@4.5.0/Runtime/XRManagementAnalytics.cs", { 211, 63, 3, 130, 75, 168, 2, 165, 72, 135, 117, 134, 18, 122, 1, 68} },
-{ "./Library/PackageCache/com.unity.xr.management@4.5.0/Runtime/XRManagerSettings.cs", { 139, 233, 29, 245, 46, 57, 47, 197, 145, 222, 34, 237, 210, 112, 175, 20} },
+{ ".\\Unity.SourceGenerators\\Unity.MonoScriptGenerator.MonoScriptInfoGenerator\\AssemblyMonoScriptTypes.generated.cs", { 235, 241, 193, 119, 63, 168, 188, 39, 159, 225, 87, 131, 80, 216, 231, 99} },
+{ ".\\Library\\PackageCache\\com.unity.xr.management@4.5.0\\Runtime\\XRConfigurationData.cs", { 66, 76, 189, 32, 76, 234, 62, 242, 197, 54, 134, 160, 76, 89, 117, 181} },
+{ ".\\Library\\PackageCache\\com.unity.xr.management@4.5.0\\Runtime\\XRGeneralSettings.cs", { 28, 95, 59, 182, 78, 27, 45, 133, 215, 239, 135, 132, 124, 191, 43, 17} },
+{ ".\\Library\\PackageCache\\com.unity.xr.management@4.5.0\\Runtime\\XRLoader.cs", { 221, 124, 172, 64, 76, 182, 217, 132, 126, 79, 26, 58, 218, 39, 240, 129} },
+{ ".\\Library\\PackageCache\\com.unity.xr.management@4.5.0\\Runtime\\XRLoaderHelper.cs", { 92, 8, 51, 241, 33, 125, 106, 150, 206, 238, 169, 177, 58, 121, 24, 141} },
+{ ".\\Library\\PackageCache\\com.unity.xr.management@4.5.0\\Runtime\\XRManagementAnalytics.cs", { 211, 63, 3, 130, 75, 168, 2, 165, 72, 135, 117, 134, 18, 122, 1, 68} },
+{ ".\\Library\\PackageCache\\com.unity.xr.management@4.5.0\\Runtime\\XRManagerSettings.cs", { 139, 233, 29, 245, 46, 57, 47, 197, 145, 222, 34, 237, 210, 112, 175, 20} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

@@ -25,6 +25,7 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.ARFoundation.ARCameraBackground
     - UnityEngine.XR.ARFoundation.ARCameraManager
     - UnityEngine.XR.ARFoundation.ARInputManager
+    - UnityEngine.XR.ARFoundation.ARMeshManager
     - UnityEngine.XR.ARFoundation.ARSession
     - UnityEngine.XR.ARFoundation.ARTrackedImageManager
     Unity.XR.ARKit.Editor.dll:
@@ -42,7 +43,6 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.Management.XRManagerSettings
     Unity.XR.Simulation.Editor.dll:
     - UnityEditor.XR.Simulation.SimulationEnvironmentAssetsManager
-    - UnityEditor.XR.Simulation.XREnvironmentViewManager
     - UnityEditor.XR.Simulation.XRSimulationSettings
     Unity.XR.Simulation.dll:
     - UnityEngine.XR.Simulation.SimulatedBoundedPlane
@@ -84,7 +84,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     Unity.XR.ARSubsystems:
-    - UnityEngine.XR.ARSubsystems.SerializableDictionary`2/KeyValuePair[System.String,System.Byte[]]
     - UnityEngine.XR.ARSubsystems.SerializableDictionary`2[System.String,System.Byte[]]
     - UnityEngine.XR.ARSubsystems.SerializableGuid
     - UnityEngine.XR.ARSubsystems.XRReferenceImage
@@ -141,47 +140,49 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1542}
+      Script: {instanceID: 1594}
     - Class: 114
-      Script: {instanceID: 1610}
+      Script: {instanceID: 1654}
     - Class: 114
-      Script: {instanceID: 1724}
+      Script: {instanceID: 1768}
     - Class: 114
-      Script: {instanceID: 2404}
+      Script: {instanceID: 2448}
     - Class: 114
-      Script: {instanceID: 2990}
+      Script: {instanceID: 3034}
     - Class: 114
-      Script: {instanceID: 3258}
+      Script: {instanceID: 3302}
     - Class: 114
-      Script: {instanceID: 3646}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 3888}
+      Script: {instanceID: 3932}
     - Class: 114
-      Script: {instanceID: 4490}
+      Script: {instanceID: 4534}
     - Class: 114
-      Script: {instanceID: 4602}
+      Script: {instanceID: 4646}
     - Class: 114
-      Script: {instanceID: 5044}
+      Script: {instanceID: 5088}
     - Class: 114
-      Script: {instanceID: 5252}
+      Script: {instanceID: 5296}
     - Class: 114
-      Script: {instanceID: 5398}
+      Script: {instanceID: 5326}
     - Class: 114
-      Script: {instanceID: 5668}
+      Script: {instanceID: 5442}
     - Class: 114
-      Script: {instanceID: 6368}
+      Script: {instanceID: 5662}
     - Class: 114
-      Script: {instanceID: 7140}
+      Script: {instanceID: 5714}
     - Class: 114
-      Script: {instanceID: 7174}
+      Script: {instanceID: 6414}
     - Class: 114
-      Script: {instanceID: 7352}
+      Script: {instanceID: 7218}
     - Class: 114
-      Script: {instanceID: 7810}
+      Script: {instanceID: 7396}
     - Class: 114
-      Script: {instanceID: 9650}
+      Script: {instanceID: 7854}
     - Class: 114
-      Script: {instanceID: 33544}
+      Script: {instanceID: 9694}
+    - Class: 114
+      Script: {instanceID: 9774}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -203,16 +204,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 953cd41bf2122c06a3f51cbee7a5a059
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: RoomSpawnerScript
-  - hash:
-      serializedVersion: 2
       Hash: 67f2e533bbfe68206e21fd8cf233561c
     assemblyName: UnityEngine.SpatialTracking
     namespaceName: UnityEngine.SpatialTracking
     className: TrackedPoseDriver
+  - hash:
+      serializedVersion: 2
+      Hash: 540882762544409cc4530e60db00e951
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: 55060a7bf226ac385ce19ebd450f199f
@@ -929,6 +930,12 @@ ScriptsOnlyBuild:
     className: UnityOnPointerClickMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 58054bfd612821fd950d308d7dd3fed3
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ExampleTracker
+  - hash:
+      serializedVersion: 2
       Hash: 8dd7c0d5fe08cd5dce07400b145a963d
     assemblyName: Unity.XR.ARFoundation
     namespaceName: UnityEngine.XR.ARFoundation
@@ -1119,12 +1126,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem.Editor
     className: PlayerInputManagerEditor
-  - hash:
-      serializedVersion: 2
-      Hash: 540882762544409cc4530e60db00e951
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: f575854bcd9263bcceb3a0f2b8f26e82
@@ -1499,6 +1500,12 @@ ScriptsOnlyBuild:
     className: Variables
   - hash:
       serializedVersion: 2
+      Hash: 953cd41bf2122c06a3f51cbee7a5a059
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: RoomSpawnerScript
+  - hash:
+      serializedVersion: 2
       Hash: b30c8635462e66ac20f4241106119f77
     assemblyName: Unity.VisualScripting.State
     namespaceName: Unity.VisualScripting
@@ -1605,13 +1612,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 58054bfd612821fd950d308d7dd3fed3
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: ExampleTracker
   platform: 9
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/rishimusuvathi/Unity Projects/Official Gulfstream/Build
+  playerPath: C:/Users/nate_nh2b4yt/Desktop/vscode-workspace/CapstoneARTool/Builds
