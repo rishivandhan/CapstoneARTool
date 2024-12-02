@@ -1,4 +1,4 @@
-# Ignore Unity build folder
+# I'm not entirely convinced these work
 */[Ll]ibrary/
 */[Tt]emp/
 */[Oo]bj/
@@ -7,3 +7,20 @@
 */[Ll]ogs/
 */[Mm]emoryCaptures/
 
+# These better work
+*/Library/
+*/Temp/
+*/Obj/
+*/Build/
+*/Builds/
+*/Logs/
+*/MemoryCaptures/
+
+# Maybe these will work?
+*/Library/*
+*/Temp/*
+*/Obj/*
+*/Build/*
+*/Builds/*
+*/Logs/*
+*/MemoryCaptures/*
