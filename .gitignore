@@ -7,14 +7,14 @@
 */[Ll]ogs/
 */[Mm]emoryCaptures/
 
-# These better work
-*/Library/
-*/Temp/
-*/Obj/
-*/Build/
-*/Builds/
-*/Logs/
-*/MemoryCaptures/
+# These are more likely to work?
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+MemoryCaptures/
 
 # Maybe these will work?
 */Library/*
