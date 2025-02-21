@@ -17,6 +17,8 @@ public class EndScan : MonoBehaviour
 
     private NativeArray<Vector3> points;
 
+    private string serverUrl = "http://172.20.157.162:5000/testData";
+
     public void onClick()
     {
 
@@ -58,7 +60,33 @@ public class EndScan : MonoBehaviour
            
     }
 
-    
+
+
+    IEnumerator sendPCDToFlask(string jsonData)
+    {
+        UnityWebRequest webRequest = new UnityWebRequest(serverUrl, "POST");
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+        webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        webRequest.downloadHandler = new DownloadHandlerBuffer();
+        webRequest.SetRequestHeader("Content-type", "application/json");
+
+
+        yield return webRequest.SendWebRequest();
+
+
+        if(webRequest.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("pcd successfully sent to server yayyyy");
+            Debug.Log("Server response: " + webRequest.downloadHandler.text);
+
+        } else
+        {
+            Debug.Log("Error sending point cloud fix your shit: " + webRequest.error);
+        }
+
+
+
+    }
 
     
 
