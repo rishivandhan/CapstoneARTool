@@ -17,7 +17,7 @@ public class EndScan : MonoBehaviour
 
     private NativeArray<Vector3> points;
 
-    private string serverUrl = "http://172.20.31.24:5000/testdata";
+    private string serverUrl = "http://172.20.31.24:5000/localize";
 
     public void onClick()
     {
@@ -54,7 +54,7 @@ public class EndScan : MonoBehaviour
         }
 
 
-        string jsonData = JsonConvert.SerializeObject(new { data = pointList }, Formatting.Indented);
+        string jsonData = JsonConvert.SerializeObject(new { points = pointList }, Formatting.Indented);
         Debug.Log(jsonData);
         StartCoroutine(sendPCDToFlask(jsonData));
            
