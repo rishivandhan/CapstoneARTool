@@ -1,4 +1,5 @@
 import open3d as o3d
+import os
 
 def main():
 	input_path = input("Enter input filename: ")
@@ -7,6 +8,15 @@ def main():
 	convert(input_path, output_path)
 
 def convert(input_path, output_path):
+
+	try:
+		if not os.path.exists(input_path):
+			raise FileNotFoundError(f"File '{input_path}' not found. Check the path!")
+	except Exception as e:
+		print(e)
+		exit(0)
+
+
 	# Load the OBJ file
 	mesh = o3d.io.read_triangle_mesh(input_path)
 

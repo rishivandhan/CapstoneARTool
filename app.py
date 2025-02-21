@@ -5,9 +5,9 @@ import json
 import copy
 
 app = Flask(__name__)
+MODEL_PATH = "./servertools/models/BoydPillarSimple.pcd"
 
-# Load the prepared 3D model
-# reference_pcd = o3d.io.read_point_cloud("Room_Model.pcd")
+reference_pcd = o3d.io.read_point_cloud(MODEL_PATH)
 
 @app.route('/testdata', methods=['POST'])
 def testdata():
