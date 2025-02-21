@@ -17,7 +17,7 @@ public class EndScan : MonoBehaviour
 
     private NativeArray<Vector3> points;
 
-    private string serverUrl = "http://172.20.31.24:5000/localize";
+    private string serverUrl = "http://172.20.31.24:5000/icp";
 
     public void onClick()
     {
