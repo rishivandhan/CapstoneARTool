@@ -17,7 +17,7 @@ public class EndScan : MonoBehaviour
 
     private NativeArray<Vector3> points;
 
-    private string serverUrl = "http://172.20.157.162:5000/testData";
+    private string serverUrl = "http://172.20.31.24:5000/testdata";
 
     public void onClick()
     {
@@ -52,11 +52,11 @@ public class EndScan : MonoBehaviour
             pointList.Add(new float[] { point.x, point.y, point.z });
 
         }
-    
-
-        string jsonData = JsonConvert.SerializeObject(pointList, Formatting.Indented);
 
 
+        string jsonData = JsonConvert.SerializeObject(new { data = pointList }, Formatting.Indented);
+        Debug.Log(jsonData);
+        StartCoroutine(sendPCDToFlask(jsonData));
            
     }
 
@@ -88,6 +88,8 @@ public class EndScan : MonoBehaviour
 
     }
 
-    
+
+
+
 
 }
