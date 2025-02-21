@@ -1,13 +1,16 @@
 from flask import Flask, request, jsonify
 import numpy as np
 import open3d as o3d
-import json
 import copy
 
 app = Flask(__name__)
 MODEL_PATH = "./servertools/models/BoydPillarSimple.pcd"
 
 reference_pcd = o3d.io.read_point_cloud(MODEL_PATH)
+	
+@app.route('/', methods=['GET'])
+def home():
+	return "Server is up and running!"
 
 @app.route('/testdata', methods=['POST'])
 def testdata():
@@ -17,8 +20,8 @@ def testdata():
 
 	except Exception as e:
 		return jsonify({"error": str(e)})
-
-
+	
+	return "Data received successfully."
 
 @app.route('/localize', methods=['POST'])
 def localize():
@@ -46,26 +49,36 @@ def localize():
 		aligned_input = copy.deepcopy(input_pcd)
 		aligned_input.transform(reg_p2p.transformation)
 
-		'''
+		# Visualize
 		# Color the clouds for clarity:
-		ref_vis = copy.deepcopy(reference_pcd)
-		ref_vis.paint_uniform_color([1, 0, 0])         # Reference in red
-		aligned_input.paint_uniform_color(
-			[0, 1, 0])     # Transformed input in green
+		reference_pcd.paint_uniform_color([0, 0, 0])						# Reference in red
+		aligned_input.paint_uniform_color([0, 0, 1])				# Transformed input in green
+		input_pcd.paint_uniform_color([0, 0, 1])		# Original input in blue
 
 		# Visualize both point clouds together
 		o3d.visualization.draw_geometries(
-			[ref_vis, aligned_input],
+			[reference_pcd, aligned_input],
 			window_name="Alignment Visualization",
 			width=800,
 			height=600
 		)
-		'''
+
 		# Return transformation data to Unity
 		return jsonify({"transformation": transformation})
 	except Exception as e:
 		return jsonify({"error": str(e)})
+	
+@app.route("/visualize", methods=['POST'])
+def visualize():
+	data = request.json
+
+	points_array = np.array(data["data"])
+	pcd = o3d.geometry.PointCloud()
+	pcd.points = o3d.utility.Vector3dVector(points_array)
+	o3d.visualization.draw_geometries([pcd])
+
+	return 'Data received successfully.'
 
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', port=5000)
+	app.run(debug=True, host='0.0.0.0', port=5000)
