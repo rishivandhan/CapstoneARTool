@@ -1,17 +1,11 @@
-# Visualizing a Point Cloud Using Depth in Unity
-Visualizing a point cloud using depth API in Unity similar to [WWDC20 demo](https://developer.apple.com/documentation/arkit/visualizing_a_point_cloud_using_scene_depth).
+# AR Markerless World Alignment Project
 
-![GIF](SaJII4P.gif)
+Nate Kite, Rishi Musuvathi, Edward Liu, Mihir Joshi
 
+Built with Unity and some other stuff.
 
 ### Requirements
-- iOS device with a LiDAR sensor (iPad Pro 2020 and iPhone 12)
-
-### Known Issues
-- Supports only *Landscape Left* orientation
-
-### Installation
-Run the following:
+To run the Flask server backend, the following are required:
 
 ```
 pip install flask
