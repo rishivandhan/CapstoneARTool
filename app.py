@@ -2,12 +2,12 @@ from flask import Flask, request, jsonify
 import numpy as np
 import open3d as o3d
 import copy
-from pycpd import RigidRegistration
+from servertools import pointcloudhelpers as tools
 
 app = Flask(__name__)
 MODEL_PATH = "./servertools/models/Lab.pcd"
 
-reference_pcd = o3d.io.read_point_cloud(MODEL_PATH)
+target_pcd = o3d.io.read_point_cloud(MODEL_PATH)
 	
 @app.route('/', methods=['GET'])
 def home():
@@ -27,82 +27,41 @@ def testdata():
 @app.route('/icp', methods=['POST'])
 def localize_icp():
 	try:
-		# Receive point cloud data as JSON
+		# Build point cloud
 		data = request.json
-		points = np.array(data["points"])  # Expecting list of [x, y, z] points
+		source = o3d.geometry.PointCloud()
+		source.points = o3d.utility.Vector3dVector(np.array(data["points"]))
 
-		# Convert to Open3D point cloud
-		input_pcd = o3d.geometry.PointCloud()
-		input_pcd.points = o3d.utility.Vector3dVector(points)
+		transformation = tools.run_icp(source, target_pcd)
 
-		# Perform ICP registration
-		threshold = 0.02  # Set a distance threshold
-		trans_init = np.eye(4)  # Initial transformation guess
-		reg_p2p = o3d.pipelines.registration.registration_icp(
-			input_pcd, reference_pcd, threshold, trans_init,
-			o3d.pipelines.registration.TransformationEstimationPointToPoint()
-		)
+		# Visualize output
+		aligned = copy.deepcopy(source)
+		aligned.transform(transformation)
+		tools.visualize(source=source, target=target_pcd, transformed=aligned)
 
-		# Extract transformation matrix
-		transformation = reg_p2p.transformation.tolist()
-
-		# code to visualize the allignment
-		aligned_input = copy.deepcopy(input_pcd)
-		aligned_input.transform(reg_p2p.transformation)
-
-		# Visualize
-		# Color the clouds for clarity:
-		reference_pcd.paint_uniform_color([1, 0, 0])		# Reference in red
-		aligned_input.paint_uniform_color([0, 1, 0])		# Transformed input in green
-		input_pcd.paint_uniform_color([0, 0, 1])			# Original input in blue
-
-		# Visualize both point clouds together
-		o3d.visualization.draw_geometries(
-			[reference_pcd, aligned_input, input_pcd],
-			window_name="Alignment Visualization",
-			width=800,
-			height=600
-		)
-
-		# Return transformation data to Unity
-		return jsonify({"transformation": transformation})
+		# Return transformation data as json
+		return jsonify({"transformation": transformation.tolist()})
 	except Exception as e:
+		print(str(e))
 		return jsonify({"error": str(e)})
 	
 @app.route('/cpd', methods=['POST'])
 def localize_cpd():
 	try:
-		# Receive point cloud data as JSON
+		# Build point cloud
 		data = request.json
-		input_points = np.array(data["points"])  # Expecting list of [x, y, z] points
+		source = o3d.geometry.PointCloud()
+		source.points = o3d.utility.Vector3dVector(np.array(data["points"]))
 
-		print("registration")
+		transformation = tools.run_cpd(source, target_pcd)
 
-		# Apply CPD rigid registration
-		cpd = RigidRegistration(X=input_points, Y=np.asarray(reference_pcd.points))
-		transformed_source, transformation_matrix = cpd.register()
+		# Visualize output
+		transformation = tools.run_icp(source, target_pcd)
+		aligned = o3d.transform(transformation)
+		tools.visualize(source=source, target=target_pcd, transformed=aligned)
 
-		print("visualizing")
-
-		# Input to PCD (for visualization)
-		input_pcd = o3d.geometry.PointCloud()
-		input_pcd.points = o3d.utility.Vector3dVector(input_points)
-
-		# Visualize
-		reference_pcd.paint_uniform_color([1, 0, 0])		# Reference in red
-		transformed_source.paint_uniform_color([0, 1, 0])		# Transformed input in green
-		input_pcd.paint_uniform_color([0, 0, 1])			# Original input in blue
-
-		# Visualize both point clouds together
-		o3d.visualization.draw_geometries(
-			[reference_pcd, transformed_source, input_pcd],
-			window_name="Alignment Visualization",
-			width=800,
-			height=600
-		)
-
-		# Return transformation data to Unity
-		return jsonify({"transformation": "NOT IMPLEMENTED"})
+		# Return transformation data as json
+		return jsonify({"transformation": transformation.tolist()})
 	except Exception as e:
 		return jsonify({"error": str(e)})
 	
