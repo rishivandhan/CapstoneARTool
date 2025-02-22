@@ -2,6 +2,8 @@
 
 Nate Kite, Rishi Musuvathi, Edward Liu, Mihir Joshi
 
+In collaboration with Gulfstream Aerospace
+
 Built with Unity and some other stuff.
 
 ### Requirements
