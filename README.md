@@ -9,3 +9,12 @@ Visualizing a point cloud using depth API in Unity similar to [WWDC20 demo](http
 
 ### Known Issues
 - Supports only *Landscape Left* orientation
+
+### Installation
+Run the following:
+
+```
+pip install flask
+pip install open3d
+pip install pycpd
+```
