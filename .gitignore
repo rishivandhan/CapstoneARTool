@@ -3,6 +3,7 @@ __pycache__/
 .venv/
 lib/
 lib64/
+.python-version
 
 
 # =============== #
