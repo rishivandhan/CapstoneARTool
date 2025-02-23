@@ -39,3 +39,9 @@ obj/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# ============ #
+# VSCode settings #
+# ============ #
+.vscode/
+.vscode/settings
