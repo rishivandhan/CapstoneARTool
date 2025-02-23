@@ -5,7 +5,7 @@ import copy
 from servertools import pointcloudhelpers as tools
 
 app = Flask(__name__)
-MODEL_PATH = "./servertools/models/Lab.pcd"
+MODEL_PATH = "./servertools/models/table.pcd"
 
 target_pcd = o3d.io.read_point_cloud(MODEL_PATH)
 
