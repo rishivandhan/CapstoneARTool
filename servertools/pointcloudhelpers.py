@@ -76,6 +76,18 @@ def run_fpfh(source, target):
 # Visualizes up to three point clouds
 
 
+def get_scale_factor(source, target):
+    source_bounds = source.get_axis_aligned_bounding_box()
+    target_bounds = target.get_axis_aligned_bounding_box()
+
+    source_diag = source_bounds.get_max_bound() - source_bounds.get_min_bound()
+    target_diag = target_bounds.get_max_bound() - target_bounds.get_min_bound()
+
+    scale_factor = np.linalg.norm(target_diag) / np.linalg.norm(source_diag)
+    return scale_factor
+    print(f"Scale factor: {scale_factor}")
+
+
 def visualize(source=None, target=None, transformed=None):
     visualizable = []
 

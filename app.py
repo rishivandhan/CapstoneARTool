@@ -92,6 +92,21 @@ def localize_fpfh():
         return jsonify({"error": str(e)})
 
 
+@app.route("/scale_factor", methods=['POST'])
+def scale_factor():
+    try:
+        data = request.json
+
+        source = o3d.geometry.PointCloud()
+        source.points = o3d.utility.Vector3dVector(np.array(data["points"]))
+
+        scale_factor = tools.get_scale_factor(source, target_pcd)
+
+        return jsonify({"scale_factor": scale_factor})
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
+
 @app.route("/visualize", methods=['POST'])
 def visualize():
     data = request.json
