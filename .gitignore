@@ -39,3 +39,10 @@ obj/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+
+# ===================================== #
+# VS code formatting  #
+# ===================================== #
+.vscode/settings.json
+.vscode/
