@@ -2,12 +2,15 @@ from flask import Flask, request, jsonify
 import numpy as np
 import open3d as o3d
 import copy
+import sys
 from servertools import pointcloudhelpers as tools
 from servertools.gedi.gedi import GeDi
 
+sys.path.append("./severtools/gedi/backbones")
+
 app = Flask(__name__)
 
-MODEL_PATH = "./servertools/models/Lab.pcd"
+MODEL_PATH = "./servertools/models/NateRoom2.pcd"
 target_pcd = o3d.io.read_point_cloud(MODEL_PATH)
 
 GEDI_CONFIG = {'dim': 32,												# descriptor output dimension
@@ -15,7 +18,7 @@ GEDI_CONFIG = {'dim': 32,												# descriptor output dimension
 				'samples_per_patch_lrf': 4000,							# num. of point to process with LRF
 				'samples_per_patch_out': 512,							# num. of points to sample for pointnet++
 				'r_lrf': .5,											# LRF radius
-				'fchkpt_gedi_net': 'data/chkpts/3dmatch/chkpt.tar'}		# path to checkpoint
+				'fchkpt_gedi_net': './servertools/gedi/data/chkpts/3dmatch/chkpt.tar'}		# path to checkpoint
 
 gedi = GeDi(config=GEDI_CONFIG)
 	
@@ -38,11 +41,7 @@ def testdata():
 @app.route('/icp', methods=['POST'])
 def localize_icp():
 	try:
-		# Build point cloud
-		data = request.json
-		source = o3d.geometry.PointCloud()
-		source.points = o3d.utility.Vector3dVector(np.array(data["points"]))
-
+		source = tools.build_pcd(request)
 		transformation = tools.run_icp(source, target_pcd)
 
 		# Visualize output
@@ -59,11 +58,7 @@ def localize_icp():
 @app.route('/cpd', methods=['POST'])
 def localize_cpd():
 	try:
-		# Build point cloud
-		data = request.json
-		source = o3d.geometry.PointCloud()
-		source.points = o3d.utility.Vector3dVector(np.array(data["points"]))
-
+		source = tools.build_pcd(request)
 		transformation = tools.run_cpd(source, target_pcd)
 
 		# Visualize output
@@ -79,11 +74,7 @@ def localize_cpd():
 @app.route('/gedi', methods=['POST'])
 def localize_gedi():
 	try:
-		# Build point cloud
-		data = request.json
-		source = o3d.geometry.PointCloud()
-		source.points = o3d.utility.Vector3dVector(np.array(data["points"]))
-
+		source = tools.build_pcd(request)
 		transformation = tools.run_gedi(source, target_pcd, gedi)
 
 		# Visualize output

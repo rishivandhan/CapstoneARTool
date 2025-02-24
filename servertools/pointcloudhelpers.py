@@ -118,3 +118,17 @@ def run_gedi(source, target, gedi):
 	print('Transforming and visualizing')
 
 	return(est_result01.transformation)
+
+# Unpacks HTTP response and builds a point cloud
+# Since our Unity point clouds are getting mirrored for some reason, this
+# unmirrors them.
+def build_pcd(request):
+	data = request.json
+
+	points = np.array(data["points"])
+	points[:, 0] *= -1
+
+	pcd = o3d.geometry.PointCloud()
+	pcd.points = o3d.utility.Vector3dVector(points)
+
+	return pcd
