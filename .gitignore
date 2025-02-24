@@ -13,6 +13,8 @@ Temp/
 Library/
 Build/
 Builds/
+Logs/
+Build.app/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
