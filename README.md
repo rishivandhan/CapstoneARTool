@@ -35,3 +35,13 @@ Next, install PointNet2.
 ```
 pip install servertools/gedi/backbones/pointnet2_ops_lib/
 ```
+
+### WSL Configuration
+
+If you are running Flask inside WSL, you'll need to configure incoming traffic to be redirected to WSL. You can use this command:
+
+```
+netsh interface portproxy add v4tov4 listenport=5000 listenaddress=0.0.0.0 connectport=5000 connectaddress=<WSL IP>
+```
+
+You may also need to let this through your firewall.
