@@ -80,7 +80,7 @@ def localize_gedi():
 		# Visualize output
 		aligned = copy.deepcopy(source)
 		aligned.transform(transformation)
-		tools.visualize(source=source, target=target_pcd, transformed=aligned)
+		tools.visualize(source=aligned, target=target_pcd)
 
 		# Return transformation data as json
 		return jsonify({"transformation": transformation.tolist()})

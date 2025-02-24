@@ -17,7 +17,8 @@ public class EndScan : MonoBehaviour
 
     private NativeArray<Vector3> points;
 
-    private string serverUrl = "http://172.25.80.1:5000/gedi";
+    [SerializeField]
+    private string serverUrl = "http://127.0.0.1:5000/gedi";
 
     public void onClick()
     {
