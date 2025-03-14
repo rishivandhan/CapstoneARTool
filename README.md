@@ -26,9 +26,9 @@ pip install tensorboard
 pip install protobuf==3.20
 ```
 
-[GeDi](https://github.com/fabiopoiesi/gedi) requires a particular version of pytorch, which we have downloaded and included in this repository.
+[GeDi](https://github.com/fabiopoiesi/gedi) requires a particular version of pytorch. You can get it [here](https://github.com/isl-org/open3d_downloads/releases/tag/torch1.8.1). Download it, then run:
 
-`pip install servertools/gedi/torch-1.8.1-cp38-cp38-linux_x86_64.whl`
+`pip install torch-1.8.1-cp38-cp38-linux_x86_64.whl`
 
 Next, install PointNet2.
 
@@ -41,7 +41,7 @@ pip install servertools/gedi/backbones/pointnet2_ops_lib/
 If you are running Flask inside WSL, you'll need to configure incoming traffic to be redirected to WSL. You can use this command:
 
 ```
-netsh interface portproxy add v4tov4 listenport=5000 listenaddress=0.0.0.0 connectport=5000 connectaddress=<WSL IP>
+netsh interface portproxy add v4tov4 listenport=5000 connectport=5000 connectaddress=<WSL IP>
 ```
 
 You may also need to let this through your firewall.
