@@ -1,5 +1,10 @@
 import open3d as o3d
 import os
+import numpy as np
+
+
+SCALE_FACTOR = 0.0254;  # 1 inch = 0.0254 meters
+
 
 def main():
 	input_path = input("Enter input filename: ")
@@ -27,6 +32,15 @@ def convert(input_path, output_path):
 	# Sample points uniformly from the mesh surface
 	num_points = 100000  # Increase for a denser cloud
 	pcd = mesh.sample_points_uniformly(number_of_points=num_points)
+	
+
+	points = np.asarray(pcd.points) * SCALE_FACTOR
+	pcd.points = o3d.utility.Vector3dVector(points)
+	
+
+	print("Scale Factor applied: 1 inch = 0.0254 meters")
+
+
 
 	# Save as a PCD file
 	o3d.io.write_point_cloud(output_path, pcd)
