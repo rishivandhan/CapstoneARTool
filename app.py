@@ -10,7 +10,7 @@ sys.path.append("./severtools/gedi/backbones")
 
 app = Flask(__name__)
 
-MODEL_PATH = "./servertools/models/NateRoom2.pcd"
+MODEL_PATH = "./servertools/models/TunnelCAD.pcd"
 target_pcd = o3d.io.read_point_cloud(MODEL_PATH)
 
 GEDI_CONFIG = {'dim': 32,												# descriptor output dimension

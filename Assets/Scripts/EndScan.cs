@@ -16,6 +16,8 @@ public class EndScan : MonoBehaviour
     ARDensePointCloudManager densePointCloudManager;
 
     private NativeArray<Vector3> points;
+    [SerializeField]
+    GameObject body;
 
     [SerializeField]
     private string serverUrl = "http://127.0.0.1:5000/gedi";
@@ -40,10 +42,10 @@ public class EndScan : MonoBehaviour
 
        
 
-        for (int i = 0; i < Mathf.Min(points.Length, 5); i++)
-        {
-            Debug.Log($"Point {i}: {points[i]}");
-        }
+        //for (int i = 0; i < Mathf.Min(points.Length, 5); i++)
+        //{
+        //    Debug.Log($"Point {i}: {points[i]}");
+        //}
 
 
 
@@ -57,13 +59,24 @@ public class EndScan : MonoBehaviour
 
         string jsonData = JsonConvert.SerializeObject(new { points = pointList }, Formatting.Indented);
         Debug.Log(jsonData);
-        StartCoroutine(sendPCDToFlask(jsonData));
-           
+
+        body.SetActive(true);
+        Debug.Log("Tunnel is spawned");
+
+
+        StartCoroutine(sendPCDToFlask(jsonData, transformationMatrix =>
+        {
+            applyTransformationMatrix(body, transformationMatrix);
+        }));
+
+        Debug.Log("Coroutine started");
+
+
     }
 
 
 
-    IEnumerator sendPCDToFlask(string jsonData)
+    IEnumerator sendPCDToFlask(string jsonData, System.Action<float[,]> onComplete)
     {
         UnityWebRequest webRequest = new UnityWebRequest(serverUrl, "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
@@ -80,6 +93,17 @@ public class EndScan : MonoBehaviour
             Debug.Log("pcd successfully sent to server yayyyy");
             Debug.Log("Server response: " + webRequest.downloadHandler.text);
 
+
+            string jsonResponse = webRequest.downloadHandler.text;
+            TransformationResponse response = JsonConvert.DeserializeObject<TransformationResponse>(jsonResponse);
+
+            // Convert response transformation to float[,] array
+            float[,] transformationMatrix = response.GetMatrix();
+            Debug.Log(transformationMatrix);
+
+            // Apply transformation after receiving it from the server
+            onComplete?.Invoke(transformationMatrix);
+
         } else
         {
             Debug.Log("Error sending point cloud fix your shit: " + webRequest.error);
@@ -88,6 +112,67 @@ public class EndScan : MonoBehaviour
 
 
     }
+
+
+
+    public void applyTransformationMatrix(GameObject obj, float[,] matrix)
+    {
+        if(obj == null || matrix.GetLength(0) !=4 || matrix.GetLength(1) != 4)
+        {
+            Debug.Log("invalid object or transformation matrix");
+        }
+
+        Vector3 original_position = new Vector3(matrix[0, 3], matrix[1, 3], matrix[2, 3]);
+        original_position.x *= -1;
+        original_position.y *= -1;
+
+        Vector3 position = new Vector3(original_position.z, original_position.x, original_position.x);
+
+        // Extract rotation matrix (3x3 part of the transformation matrix)
+        Matrix4x4 rotationMatrix = new Matrix4x4();
+        rotationMatrix.SetColumn(0, new Vector4(matrix[0, 0], matrix[1, 0], matrix[2, 0], 0));
+        rotationMatrix.SetColumn(1, new Vector4(matrix[0, 1], matrix[1, 1], matrix[2, 1], 0));
+        rotationMatrix.SetColumn(2, new Vector4(matrix[0, 2], matrix[1, 2], matrix[2, 2], 0));
+        rotationMatrix.SetColumn(3, new Vector4(0, 0, 0, 1));
+
+        // Convert rotation matrix to Quaternion
+        Quaternion rotation = rotationMatrix.rotation;
+
+        // Apply transformation
+        obj.transform.position = position;
+        obj.transform.rotation = rotation;
+
+        Debug.Log("transformation applied ");
+    }
+
+
+    [System.Serializable]
+    public class TransformationResponse
+    {
+        public List<List<float>> transformation; // JSON structure expects a list of lists
+
+        public float[,] GetMatrix()
+        {
+            if (transformation == null || transformation.Count != 4 || transformation[0].Count != 4)
+            {
+                Debug.LogError("Invalid transformation matrix received.");
+                return new float[4, 4]; // Return empty matrix to prevent errors
+            }
+
+            float[,] matrix = new float[4, 4];
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    matrix[i, j] = transformation[i][j];
+                }
+            }
+
+            return matrix;
+        }
+    }
+
 
 
 
