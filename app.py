@@ -10,7 +10,7 @@ sys.path.append("./severtools/gedi/backbones")
 
 app = Flask(__name__)
 
-MODEL_PATH = "./servertools/models/TunnelCAD.pcd"
+MODEL_PATH = "./servertools/models/pillar.pcd"
 target_pcd = o3d.io.read_point_cloud(MODEL_PATH)
 
 GEDI_CONFIG = {'dim': 32,												# descriptor output dimension
@@ -98,6 +98,13 @@ def visualize():
 	o3d.visualization.draw_geometries([pcd])
 
 	return 'Data received successfully.'
+
+@app.route('/transformation_test', methods=['POST'])
+def transformation_test():
+	transformation = [[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]]
+
+	return jsonify({"transformation": transformation})
+
 
 
 if __name__ == '__main__':
