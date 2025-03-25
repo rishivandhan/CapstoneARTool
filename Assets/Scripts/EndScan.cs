@@ -106,7 +106,7 @@ public class EndScan : MonoBehaviour
 
         } else
         {
-            Debug.Log("Error sending point cloud fix your shit: " + webRequest.error);
+            Debug.Log("Error sending point cloud fix it " + webRequest.error);
         }
 
 
