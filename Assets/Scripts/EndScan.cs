@@ -122,11 +122,8 @@ public class EndScan : MonoBehaviour
             Debug.Log("invalid object or transformation matrix");
         }
 
-        Vector3 original_position = new Vector3(matrix[0, 3], matrix[1, 3], matrix[2, 3]);
-        original_position.x *= -1;
-        original_position.y *= -1;
-
-        Vector3 position = new Vector3(original_position.z, original_position.x, original_position.x);
+        // NOTE: Translation is mirrored across the x axis and inverted
+        Vector3 position = new Vector3(matrix[0, 3], matrix[1, 3] * -1, matrix[2, 3] * -1);
 
         // Extract rotation matrix (3x3 part of the transformation matrix)
         Matrix4x4 rotationMatrix = new Matrix4x4();
@@ -137,6 +134,11 @@ public class EndScan : MonoBehaviour
 
         // Convert rotation matrix to Quaternion
         Quaternion rotation = rotationMatrix.rotation;
+
+        // Mirror across the x axis and reverse it
+        rotation.y *= -1;
+        rotation.z *= -1;
+        rotation = Quaternion.Inverse(rotation);
 
         // Apply transformation
         obj.transform.position = position;
