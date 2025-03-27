@@ -1,6 +1,8 @@
 # Python
 __pycache__/
 .venv/
+venv/
+myenv/
 lib/
 lib64/
 .python-version
