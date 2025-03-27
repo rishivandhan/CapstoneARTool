@@ -5,6 +5,9 @@ lib/
 lib64/
 .python-version
 
+# Ignore outputs
+servertools/output/*
+
 
 # =============== #
 # Unity generated #

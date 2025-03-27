@@ -109,5 +109,24 @@ def transformation_test():
 
     return jsonify({"transformation": transformation})
 
+@app.route('/save_pcd', methods=['POST'])
+def save_pcd():
+	data = request.json
+
+	# Build pcd
+	points_array = np.array(data["data"])
+	pcd = o3d.geometry.PointCloud()
+	pcd.points = o3d.utility.Vector3dVector(points_array)
+
+	# Save to servertools/output/out.pcd
+	o3d.io.write_point_cloud("./servertools/output/out.pcd", pcd)
+
+	# Return identity transformation so the app doesn't break
+	transformation = [[1.0, 0.0, 0.0, 0.0],
+			[0.0, 1.0, 0.0, 0.0],
+			[0.0, 0.0, 1.0, 0.0],
+			[0.0, 0.0, 0.0, 1.0]]
+	return jsonify({"transformation": transformation})
+
 if __name__ == '__main__':
 	app.run(debug=True, host='0.0.0.0', port=5000)
