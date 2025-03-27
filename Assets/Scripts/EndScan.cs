@@ -40,12 +40,12 @@ public class EndScan : MonoBehaviour
             return;
         }
 
-       
 
-        //for (int i = 0; i < Mathf.Min(points.Length, 5); i++)
-        //{
-        //    Debug.Log($"Point {i}: {points[i]}");
-        //}
+
+        for (int i = 0; i < Mathf.Min(points.Length, 5); i++)
+        {
+            Debug.Log($"Point {i}: {points[i]}");
+        }
 
 
 
@@ -115,15 +115,24 @@ public class EndScan : MonoBehaviour
 
 
 
-    public void applyTransformationMatrix(GameObject obj, float[,] matrix)
+    public void applyTransformationMatrix(GameObject obj, float[,] transform)
     {
-        if(obj == null || matrix.GetLength(0) !=4 || matrix.GetLength(1) != 4)
+        if(obj == null || transform.GetLength(0) !=4 || transform.GetLength(1) != 4)
         {
             Debug.Log("invalid object or transformation matrix");
         }
 
+        Matrix4x4 matrix = new Matrix4x4();
+        matrix.SetColumn(0, new Vector4(transform[0, 0], transform[1, 0], transform[2, 0], transform[3, 0]));
+        matrix.SetColumn(1, new Vector4(transform[0, 1], transform[1, 1], transform[2, 1], transform[3, 1]));
+        matrix.SetColumn(2, new Vector4(transform[0, 2], transform[1, 2], transform[2, 2], transform[3, 2]));
+        matrix.SetColumn(2, new Vector4(transform[0, 3], transform[1, 3], transform[2, 3], transform[3, 3]));
+
+        matrix = mirror_transform(matrix);
+
         // NOTE: Translation is mirrored across the x axis and inverted
-        Vector3 position = new Vector3(matrix[0, 3], matrix[1, 3] * -1, matrix[2, 3] * -1);
+        //Vector3 position = new Vector3(matrix[0, 3] * -1, matrix[1, 3], matrix[2, 3]);
+        Vector3 position = new Vector3(transform[0, 3] * -1, transform[1, 3], transform[2, 3]);
 
         // Extract rotation matrix (3x3 part of the transformation matrix)
         Matrix4x4 rotationMatrix = new Matrix4x4();
@@ -136,9 +145,9 @@ public class EndScan : MonoBehaviour
         Quaternion rotation = rotationMatrix.rotation;
 
         // Mirror across the x axis and reverse it
-        rotation.y *= -1;
-        rotation.z *= -1;
-        rotation = Quaternion.Inverse(rotation);
+        //rotation.y *= -1;
+        //rotation.z *= -1;
+        //rotation = Quaternion.Inverse(rotation);
 
         // Apply transformation
         obj.transform.position = position;
@@ -177,7 +186,20 @@ public class EndScan : MonoBehaviour
 
 
 
+    private Matrix4x4 mirror_transform(Matrix4x4 transform)
+    {
+        // Define the reflection matrix that flips the z-axis.
+        Matrix4x4 reflection = new Matrix4x4();
+        reflection.SetRow(0, new Vector4(1, 0, 0, 0));
+        reflection.SetRow(1, new Vector4(0, 1, 0, 0));
+        reflection.SetRow(2, new Vector4(0, 0, -1, 0));
+        reflection.SetRow(3, new Vector4(0, 0, 0, 1));
 
+
+        // Multiply: reflection * rightHandMatrix * reflection
+        Matrix4x4 leftHandMatrix = reflection * transform * reflection;
+        return leftHandMatrix;
+    }
 
 
 }
