@@ -81,6 +81,8 @@ def localize_gedi():
 		aligned.transform(transformation)
 		tools.visualize(source=model_pcd, target=scan_pcd)
 
+		print(transformation)
+
 		# Return transformation data as json
 		return jsonify({"transformation": transformation.tolist()})
 	except Exception as e:
