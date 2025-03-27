@@ -11,7 +11,7 @@ sys.path.append("./severtools/gedi/backbones")
 app = Flask(__name__)
 
 MODEL_PATH = "./servertools/models/TunnelCAD.pcd"
-target_pcd = o3d.io.read_point_cloud(MODEL_PATH)
+model_pcd = o3d.io.read_point_cloud(MODEL_PATH)
 
 GEDI_CONFIG = {'dim': 32,												# descriptor output dimension
 				'samples_per_batch': 500,								# batches to process the data on GPU
@@ -41,13 +41,13 @@ def testdata():
 @app.route('/icp', methods=['POST'])
 def localize_icp():
 	try:
-		source = tools.build_pcd(request)
-		transformation = tools.run_icp(source, target_pcd)
+		scan_pcd = tools.build_pcd(request)
+		transformation = tools.run_icp(model_pcd, scan_pcd)
 
 		# Visualize output
-		aligned = copy.deepcopy(source)
+		aligned = copy.deepcopy(model_pcd)
 		aligned.transform(transformation)
-		tools.visualize(source=source, target=target_pcd, transformed=aligned)
+		tools.visualize(source=model_pcd, target=scan_pcd, transformed=aligned)
 
 		# Return transformation data as json
 		return jsonify({"transformation": transformation.tolist()})
@@ -58,13 +58,12 @@ def localize_icp():
 @app.route('/cpd', methods=['POST'])
 def localize_cpd():
 	try:
-		source = tools.build_pcd(request)
-		transformation = tools.run_cpd(source, target_pcd)
+		scan_pcd = tools.build_pcd(request)
+		transformation = tools.run_cpd(model_pcd, scan_pcd)
 
 		# Visualize output
-		transformation = tools.run_icp(source, target_pcd)
 		aligned = o3d.transform(transformation)
-		tools.visualize(source=source, target=target_pcd, transformed=aligned)
+		tools.visualize(source=model_pcd, target=scan_pcd, transformed=aligned)
 
 		# Return transformation data as json
 		return jsonify({"transformation": transformation.tolist()})
@@ -74,13 +73,13 @@ def localize_cpd():
 @app.route('/gedi', methods=['POST'])
 def localize_gedi():
 	try:
-		source = tools.build_pcd(request)
-		transformation = tools.run_gedi(source, target_pcd, gedi)
+		scan_pcd = tools.build_pcd(request)
+		transformation = tools.run_gedi(model_pcd, scan_pcd, gedi)
 
 		# Visualize output
-		aligned = copy.deepcopy(source)
+		aligned = copy.deepcopy(model_pcd)
 		aligned.transform(transformation)
-		tools.visualize(source=aligned, target=target_pcd)
+		tools.visualize(source=model_pcd, target=scan_pcd)
 
 		# Return transformation data as json
 		return jsonify({"transformation": transformation.tolist()})
