@@ -111,12 +111,7 @@ def transformation_test():
 
 @app.route('/save_pcd', methods=['POST'])
 def save_pcd():
-	data = request.json
-
-	# Build pcd
-	points_array = np.array(data["data"])
-	pcd = o3d.geometry.PointCloud()
-	pcd.points = o3d.utility.Vector3dVector(points_array)
+	pcd = tools.build_pcd(request)
 
 	# Save to servertools/output/out.pcd
 	o3d.io.write_point_cloud("./servertools/output/out.pcd", pcd)
