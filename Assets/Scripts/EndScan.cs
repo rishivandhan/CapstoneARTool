@@ -60,13 +60,15 @@ public class EndScan : MonoBehaviour
         string jsonData = JsonConvert.SerializeObject(new { points = pointList }, Formatting.Indented);
         Debug.Log(jsonData);
 
-        body.SetActive(true);
-        Debug.Log("Tunnel is spawned");
+        // body.SetActive(true);
+        // Debug.Log("Tunnel is spawned");
 
 
         StartCoroutine(sendPCDToFlask(jsonData, transformationMatrix =>
         {
             applyTransformationMatrix(body, transformationMatrix);
+            body.SetActive(true);
+            Debug.Log("Tunnel is spawned");
         }));
 
         Debug.Log("Coroutine started");

@@ -10,7 +10,7 @@ sys.path.append("./severtools/gedi/backbones")
 
 app = Flask(__name__)
 
-MODEL_PATH = "./servertools/models/TunnelCAD.pcd"
+MODEL_PATH = "./servertools/models/NateRoom2.pcd"
 model_pcd = o3d.io.read_point_cloud(MODEL_PATH)
 
 GEDI_CONFIG = {'dim': 32,												# descriptor output dimension
@@ -77,9 +77,9 @@ def localize_gedi():
 		transformation = tools.run_gedi(model_pcd, scan_pcd, gedi)
 
 		# Visualize output
-		aligned = copy.deepcopy(model_pcd)
-		aligned.transform(transformation)
-		tools.visualize(source=model_pcd, target=scan_pcd)
+		# aligned = copy.deepcopy(model_pcd)
+		# aligned.transform(transformation)
+		# tools.visualize(source=model_pcd, target=scan_pcd)
 
 		print(transformation)
 
