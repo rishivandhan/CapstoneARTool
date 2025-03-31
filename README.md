@@ -24,6 +24,7 @@ pip install pycpd
 pip install gdown
 pip install tensorboard
 pip install protobuf==3.20
+pip install torchgeometry==0.1.2
 ```
 
 [GeDi](https://github.com/fabiopoiesi/gedi) requires a particular version of pytorch. You can get it [here](https://github.com/isl-org/open3d_downloads/releases/tag/torch1.8.1). Download it, then run:
