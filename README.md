@@ -7,13 +7,13 @@ In collaboration with Gulfstream Aerospace
 Built with Unity and some other stuff.
 
 ### Requirements
-TODO: Unity version requirement?
 
 Version requirements:
 
 - Ubuntu
 - Python 3.8
 - [CUDA Toolkit 11.X](https://developer.nvidia.com/cuda-11-8-0-download-archive)
+- Unity 2022.3.47 (other versions might work, but this is what we used)
 
 The following installations are required for our code (open3d must be installed on the correct version to ensure compatability with GeDi):
 
