@@ -82,7 +82,6 @@ def localize_gedi():
 		# aligned.transform(transformation)
 		# tools.visualize(source=aligned, target=scan_pcd)
 
-		print("Transformation:\n" + transformation)
 		print("Sending response to iPad.")
 
 		# Return transformation data as json
