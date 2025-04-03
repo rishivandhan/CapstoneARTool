@@ -77,11 +77,13 @@ def localize_gedi():
 		transformation = tools.run_gedi(model_pcd, scan_pcd, gedi)
 
 		# Visualize output
+		# print("Visualizing output...")
 		# aligned = copy.deepcopy(model_pcd)
 		# aligned.transform(transformation)
-		# tools.visualize(source=model_pcd, target=scan_pcd)
+		# tools.visualize(source=aligned, target=scan_pcd)
 
-		print(transformation)
+		print("Transformation:\n" + transformation)
+		print("Sending response to iPad.")
 
 		# Return transformation data as json
 		return jsonify({"transformation": transformation.tolist()})

@@ -62,6 +62,8 @@ def run_gedi(source, target, gedi):
 	# I don't know what ANY of this means, and we should study it carefully
 	# This code includes downsampling and some other stuff, which we should
 	# probably do on our own once we understand what's going on.
+
+	print('Downsampling...')
 		
 	voxel_size = .01
 	patches_per_pair = 5000
@@ -79,13 +81,13 @@ def run_gedi(source, target, gedi):
 	_source = torch.tensor(np.asarray(source.points)).float()
 	_target = torch.tensor(np.asarray(target.points)).float()
 
-	print('GeDi is doing the GeDi thing')
+	print('GeDi is doing the GeDi thing...')
 
 	# computing descriptors
 	source_desc = gedi.compute(pts=source_points, pcd=_source)
 	target_desc = gedi.compute(pts=target_points, pcd=_target)
 
-	print('GeDi is done, doing other stuff')
+	print('GeDi complete...')
 
 	# preparing format for open3d ransac
 	source_dsdv = o3d.pipelines.registration.Feature()
@@ -99,7 +101,7 @@ def run_gedi(source, target, gedi):
 	_target = o3d.geometry.PointCloud()
 	_target.points = o3d.utility.Vector3dVector(target_points)
 
-	print('RANSAC')
+	print('Applying RANSAC...')
 
 	# applying ransac
 	est_result01 = o3d.pipelines.registration.registration_ransac_based_on_feature_matching(
@@ -115,18 +117,17 @@ def run_gedi(source, target, gedi):
 				o3d.pipelines.registration.CorrespondenceCheckerBasedOnDistance(.02)],
 		criteria=o3d.pipelines.registration.RANSACConvergenceCriteria(50000, 1000))
 
-	print('Transforming and visualizing')
+	print('Alignment complete.')
 
 	return(est_result01.transformation)
 
 # Unpacks HTTP response and builds a point cloud
-# Since our Unity point clouds are getting mirrored for some reason, this
-# unmirrors them.
+# Also responsible for mirroring the point cloud from Unity's LH coordinates to Open3d's RH system
 def build_pcd(request):
 	data = request.json
 
 	points = np.array(data["points"])
-	points[:, 0] *= -1
+	points[:, 2] *= -1
 
 	pcd = o3d.geometry.PointCloud()
 	pcd.points = o3d.utility.Vector3dVector(points)
