@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{5A31587B-B5F3-08D5-D045-C6C582742E4A}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EndScan.cs">
+    <Files>
+      <File FileName="Assets/Scripts/EndScan.cs" Line="172" Column="29" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8ac94de2-2e58-4e92-bf3a-6bd9c4ae3b62" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
