@@ -6,6 +6,8 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.Networking;
 using Cdm.XR.Extensions;
 using Newtonsoft.Json;
+using System;
+using TMPro;
 
 
 public class EndScan : MonoBehaviour
@@ -124,36 +126,24 @@ public class EndScan : MonoBehaviour
             Debug.Log("invalid object or transformation matrix");
         }
 
+        // Build matrix out of the transform array
         Matrix4x4 matrix = new Matrix4x4();
         matrix.SetColumn(0, new Vector4(transform[0, 0], transform[1, 0], transform[2, 0], transform[3, 0]));
         matrix.SetColumn(1, new Vector4(transform[0, 1], transform[1, 1], transform[2, 1], transform[3, 1]));
         matrix.SetColumn(2, new Vector4(transform[0, 2], transform[1, 2], transform[2, 2], transform[3, 2]));
-        matrix.SetColumn(2, new Vector4(transform[0, 3], transform[1, 3], transform[2, 3], transform[3, 3]));
+        matrix.SetColumn(3, new Vector4(transform[0, 3], transform[1, 3], transform[2, 3], transform[3, 3]));
 
-        matrix = mirror_transform(matrix);
+        // Get translation from the matrix, then invert x
+        Vector3 translation = new Vector3(transform[0, 3], transform[1, 3], transform[2, 3]);
+        translation.x *= -1;
 
-        // NOTE: Translation is mirrored across the x axis and inverted
-        //Vector3 position = new Vector3(matrix[0, 3] * -1, matrix[1, 3], matrix[2, 3]);
-        Vector3 position = new Vector3(transform[0, 3] * -1, transform[1, 3], transform[2, 3]);
-
-        // Extract rotation matrix (3x3 part of the transformation matrix)
-        Matrix4x4 rotationMatrix = new Matrix4x4();
-        rotationMatrix.SetColumn(0, new Vector4(matrix[0, 0], matrix[1, 0], matrix[2, 0], 0));
-        rotationMatrix.SetColumn(1, new Vector4(matrix[0, 1], matrix[1, 1], matrix[2, 1], 0));
-        rotationMatrix.SetColumn(2, new Vector4(matrix[0, 2], matrix[1, 2], matrix[2, 2], 0));
-        rotationMatrix.SetColumn(3, new Vector4(0, 0, 0, 1));
-
-        // Convert rotation matrix to Quaternion
-        Quaternion rotation = rotationMatrix.rotation;
-
-        // Mirror across the x axis and reverse it
-        //rotation.y *= -1;
-        //rotation.z *= -1;
-        //rotation = Quaternion.Inverse(rotation);
+        // Convert rotation matrix to Quaternion, then invert it
+        Quaternion rotation = matrix.rotation;
+        rotation = Quaternion.Inverse(rotation);
 
         // Apply transformation
-        obj.transform.position = position;
-        obj.transform.rotation = rotation;
+        obj.transform.position += translation;
+        obj.transform.Rotate(rotation.eulerAngles);
 
         Debug.Log("transformation applied ");
     }
@@ -185,23 +175,4 @@ public class EndScan : MonoBehaviour
             return matrix;
         }
     }
-
-
-
-    private Matrix4x4 mirror_transform(Matrix4x4 transform)
-    {
-        // Define the reflection matrix that flips the z-axis.
-        Matrix4x4 reflection = new Matrix4x4();
-        reflection.SetRow(0, new Vector4(1, 0, 0, 0));
-        reflection.SetRow(1, new Vector4(0, 1, 0, 0));
-        reflection.SetRow(2, new Vector4(0, 0, -1, 0));
-        reflection.SetRow(3, new Vector4(0, 0, 0, 1));
-
-
-        // Multiply: reflection * rightHandMatrix * reflection
-        Matrix4x4 leftHandMatrix = reflection * transform * reflection;
-        return leftHandMatrix;
-    }
-
-
 }

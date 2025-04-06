@@ -127,7 +127,10 @@ def build_pcd(request):
 	data = request.json
 
 	points = np.array(data["points"])
-	points[:, 2] *= -1
+
+	# Mirrors the point cloud
+	# Necessary because Unity and Open3D have different coordinate systems
+	points[:, 0] *= -1
 
 	pcd = o3d.geometry.PointCloud()
 	pcd.points = o3d.utility.Vector3dVector(points)
