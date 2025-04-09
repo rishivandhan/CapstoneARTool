@@ -11,6 +11,8 @@ namespace Cdm.XR.Extensions
 {
     public class ARDensePointCloudManager : MonoBehaviour
     {
+        public Boolean isFinished = false;
+
         private static readonly List<ARDensePointCloud> _pointClouds = new List<ARDensePointCloud>();
         
         public ARDensePointCloud pointCloudPrefab;

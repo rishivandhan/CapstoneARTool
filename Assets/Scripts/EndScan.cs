@@ -20,6 +20,7 @@ public class EndScan : MonoBehaviour
     private NativeArray<Vector3> points;
     [SerializeField]
     GameObject body;
+    
 
     [SerializeField]
     private string serverUrl = "http://127.0.0.1:5000/gedi";
@@ -44,10 +45,10 @@ public class EndScan : MonoBehaviour
 
 
 
-        for (int i = 0; i < Mathf.Min(points.Length, 5); i++)
-        {
-            Debug.Log($"Point {i}: {points[i]}");
-        }
+        //for (int i = 0; i < Mathf.Min(points.Length, 5); i++)
+        //{
+        //    Debug.Log($"Point {i}: {points[i]}");
+        //}
 
 
 
@@ -60,7 +61,7 @@ public class EndScan : MonoBehaviour
 
 
         string jsonData = JsonConvert.SerializeObject(new { points = pointList }, Formatting.Indented);
-        Debug.Log(jsonData);
+        //Debug.Log(jsonData);
 
         // body.SetActive(true);
         // Debug.Log("Tunnel is spawned");
@@ -175,4 +176,41 @@ public class EndScan : MonoBehaviour
             return matrix;
         }
     }
+
+
+
+    public void EndScanning()
+    {
+        // Stop scanning
+        densePointCloudManager.enabled = false;
+
+        // Remove all accumulated point clouds
+        densePointCloudManager.DestroyAllPointClouds();
+
+        // Disable the visualized mesh
+        var visualizer = FindObjectOfType<ARDensePointCloudMeshVisualizer>();
+        if (visualizer != null)
+        {
+            visualizer.gameObject.SetActive(false);
+        }
+
+        Debug.Log("Scan ended and point cloud visualizer disabled.");
+    }
+
+
+
+    public void RestartScan()
+    {
+        // Reactivate scanning logic
+        densePointCloudManager.enabled = true;
+
+        // Reactivate the visualizer GameObject
+        var visualizer = FindObjectOfType<ARDensePointCloudMeshVisualizer>();
+        if (visualizer != null)
+        {
+            visualizer.gameObject.SetActive(true);
+        }
+
+    }
+
 }
