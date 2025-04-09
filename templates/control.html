@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>World Alignment Server</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Noto Sans'">
+  <h1>World Alignment Server Control Panel</h1>
+  <hr>
+  <p>GeDi status: {% if gedi %}<span style="color: green" id="gediStatus">Online</span>{% else %}<span style="color: red" id="gediStatus">Offline</span>{% endif %}</p>
+  <p>Current model: <span id="model_path">{{model_path}}</span></p>
+  <p>Visualization: {% if visualize %}<span style="color: green" id="visualizeStatus">Enabled</span>{% else %}<span style="color: red" id="visualizeStatus">Disabled</span>{% endif %}</p>
+  <h2>Activate GeDi</h2>
+  <form id="activateGedi">
+    <button>Activate</button>
+  </form>
+  <h2>Set model</h2>
+  <form id="changeModel">
+    <label for="changeModel">Enter path:</label>
+    <input type="text" id="modelPath" name="modelPath" required />
+    <input type="checkbox" id="scaleBox">
+    <label for="scaleBox">Convert inches to meters</label>
+    <br><br>
+    <button>Submit</button>
+  </form>
+  <h2>Toggle visualization</h2>
+  <form id="toggleVisualize" visualize="{{visualize}}">
+    <button>Toggle</button>
+  </form>
+
+  <div id="responseContainer" style="margin-top: 20px;"></div>
+
+  <script>
+    const modelForm = document.getElementById('changeModel');
+    const gediForm = document.getElementById('activateGedi');
+    const visualizeForm = document.getElementById('toggleVisualize');
+    const responseContainer = document.getElementById('responseContainer');
+
+    modelForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const userText = document.getElementById('modelPath').value;
+      const scale = document.getElementById('scaleBox').checked;
+
+      try {
+        const response = await fetch('/change_model', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ userText, scale })
+        });
+
+        const data = await response.text(); // or use response.json() if you expect JSON
+        responseContainer.innerHTML = `${data}`;
+        if (response.status == 200) {
+          document.getElementById('model_path').innerHTML = userText;
+        }
+      } catch (error) {
+        responseContainer.innerHTML = `${error.message}`;
+      }
+    });
+      
+    gediForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      
+      responseContainer.innerHTML = 'Activating GeDi...'
+
+      try {
+        const response = await fetch('/load_gedi', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: ""
+        });
+
+        const data = await response.text(); // or use response.json() if you expect JSON
+        responseContainer.innerHTML = `${data}`;
+        if (response.status == 200) {
+          document.getElementById('gediStatus').innerHTML = 'Online'
+          document.getElementById('gediStatus').style = 'color: green'
+        }
+      } catch (error) {
+        responseContainer.innerHTML = `${error.message}`;
+      }
+    });
+
+    visualizeForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      try {
+        const response = await fetch('/toggle_visualization', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: ""
+        });
+
+        const data = await response.text(); // or use response.json() if you expect JSON
+        responseContainer.innerHTML = `${data}`;
+        if (response.status == 200) {
+          if (visualizeForm.visualize) {
+            visualizeForm.visualize = false
+            document.getElementById('visualizeStatus').innerHTML = 'Disabled'
+            document.getElementById('visualizeStatus').style = 'color: red'
+          } else {
+            visualizeForm.visualize = true
+            document.getElementById('visualizeStatus').innerHTML = 'Enabled'
+            document.getElementById('visualizeStatus').style = 'color: green'
+          }
+        }
+      } catch (error) {
+        responseContainer.innerHTML = `${error.message}`;
+      }
+    });
+  </script>
+</body>
+</html>
