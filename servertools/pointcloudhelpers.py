@@ -136,3 +136,24 @@ def build_pcd(request):
 	pcd.points = o3d.utility.Vector3dVector(points)
 
 	return pcd
+
+def obj_to_pcd(input_path, scale=1.0):
+	print(f'Opening "{input_path}" as a point cloud...')
+
+	# Load the OBJ file
+	mesh = o3d.io.read_triangle_mesh(input_path)
+
+	# Check if the mesh has vertex normals (helps in better sampling)
+	if not mesh.has_vertex_normals():
+		mesh.compute_vertex_normals()
+ 
+	# Sample points uniformly from the mesh surface
+	num_points = 100000  # Increase for a denser cloud
+	pcd = mesh.sample_points_uniformly(number_of_points=num_points)
+	points = np.asarray(pcd.points) * scale
+
+	pcd.points = o3d.utility.Vector3dVector(points)
+ 
+	return pcd
+	# Save as a PCD file
+	# o3d.io.write_point_cloud(output_path, pcd)
