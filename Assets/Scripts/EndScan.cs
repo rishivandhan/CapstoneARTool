@@ -17,9 +17,26 @@ public class EndScan : MonoBehaviour
     [SerializeField]
     ARDensePointCloudManager densePointCloudManager;
 
-    private NativeArray<Vector3> points;
+    [SerializeField]
+    ARDensePointCloudMeshVisualizer ARDensePointCloudMeshVisualizer;
+
     [SerializeField]
     GameObject body;
+
+    [SerializeField]
+    GameObject GediRenameText;
+
+    [SerializeField]
+    GameObject DuringAlignmentText;
+
+    [SerializeField]
+    GameObject AfterAlignmentText;
+
+
+    private NativeArray<Vector3> points;
+   
+
+
     
 
     [SerializeField]
@@ -71,7 +88,12 @@ public class EndScan : MonoBehaviour
         {
             applyTransformationMatrix(body, transformationMatrix);
             body.SetActive(true);
-            Debug.Log("Tunnel is spawned");
+            Debug.Log("Resonse Recieved performing allignment");
+            GediRenameText.SetActive(false);
+            AfterAlignmentText.SetActive(true);
+
+
+            
         }));
 
         Debug.Log("Coroutine started");
@@ -83,6 +105,10 @@ public class EndScan : MonoBehaviour
 
     IEnumerator sendPCDToFlask(string jsonData, System.Action<float[,]> onComplete)
     {
+        DuringAlignmentText.SetActive(false);
+        GediRenameText.SetActive(true);
+
+
         UnityWebRequest webRequest = new UnityWebRequest(serverUrl, "POST");
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
         webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
@@ -182,19 +208,33 @@ public class EndScan : MonoBehaviour
     public void EndScanning()
     {
         // Stop scanning
-        densePointCloudManager.enabled = false;
+        //densePointCloudManager.enabled = false;
 
-        // Remove all accumulated point clouds
+
+        Debug.Log("ending scan");
+
+        //if (ARDensePointCloudMeshVisualizer != null)
+        //{
+        //    ARDensePointCloudMeshVisualizer.ClearMesh();
+        //}
+
+
         densePointCloudManager.DestroyAllPointClouds();
+        Debug.Log("point cloud destroyed");
 
-        // Disable the visualized mesh
-        var visualizer = FindObjectOfType<ARDensePointCloudMeshVisualizer>();
-        if (visualizer != null)
-        {
-            visualizer.gameObject.SetActive(false);
-        }
 
-        Debug.Log("Scan ended and point cloud visualizer disabled.");
+
+        //// Remove all accumulated point clouds
+        //densePointCloudManager.DestroyAllPointClouds();
+
+        //// Disable the visualized mesh
+        //var visualizer = FindObjectOfType<ARDensePointCloudMeshVisualizer>();
+        //if (visualizer != null)
+        //{
+        //    visualizer.gameObject.SetActive(false);
+        //}
+
+        //Debug.Log("Scan ended and point cloud visualizer disabled.");
     }
 
 

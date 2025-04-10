@@ -1,4 +1,7 @@
+using Cdm.XR.Extensions;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -6,6 +9,8 @@ public class Timer : MonoBehaviour
     [SerializeField] private EndScan endScan;
     [SerializeField] private GameObject DuringAlignmentText;
     [SerializeField] private GameObject StartButton;
+    [SerializeField] private ARDensePointCloudManager ARDensePointCloud;
+    //[SerializeField] private TMP_Text startButtonText;
 
 
     private float elapsedTime = 0f;
@@ -24,8 +29,17 @@ public class Timer : MonoBehaviour
             Debug.Log("Timer Finished");
             isRunning = false;
             endScan.onClick();
-            endScan.EndScanning();
+
+
+            //destroys pointcloud after timer is done
+            ARDensePointCloud.DestroyAllPointClouds();
+
+
             Debug.Log("EndScan invoked after timer finished!");
+
+
+
+
         }
     }
 
@@ -38,16 +52,14 @@ public class Timer : MonoBehaviour
         isRunning = true;
         Debug.Log("Timer started.");
 
-        if(StartButton != null)
+        if (StartButton != null)
         {
-            StartButton.SetActive(false);
-        }
-
-        if(DuringAlignmentText != null)
-        {
+            StartButton.GetComponent<Button>().interactable = false;
             DuringAlignmentText.SetActive(true);
         }
-        
+
+
+
 
 
     }

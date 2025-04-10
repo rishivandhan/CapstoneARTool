@@ -81,19 +81,51 @@ namespace Cdm.XR.Extensions
         
         public void DestroyAllPointClouds()
         {
+
+
             foreach (var pc in _pointClouds)
             {
                 if (pc != null)
                 {
+                    pc.gameObject.SetActive(false); // Immediately stop rendering/updating
                     _pointCloudsRemoved.Add(pc);
-                    Destroy(pc.gameObject);
                 }
             }
-            
+
+          
+            StartCoroutine(DestroyPointCloudsAfterDelay());
+
+
+
+            //foreach (var pc in _pointClouds)
+            //{
+            //    if (pc != null)
+            //    {
+            //        _pointCloudsRemoved.Add(pc);
+            //        Destroy(pc.gameObject);
+            //    }
+            //}
+
+            //_pointClouds.Clear();
+            //OnPointCloudsChanged();
+        }
+
+
+        private IEnumerator DestroyPointCloudsAfterDelay()
+        {
+            yield return null;
+
+            foreach (var pc in _pointCloudsRemoved)
+            {
+                if (pc != null)
+                    Destroy(pc.gameObject);
+            }
+
             _pointClouds.Clear();
+            _pointCloudsRemoved.Clear();
+
             OnPointCloudsChanged();
         }
-        
         private unsafe void Update()
         {
             if (_sessionSubsystem == null || _cameraSubsystem == null || _occlusionSubsystem == null)

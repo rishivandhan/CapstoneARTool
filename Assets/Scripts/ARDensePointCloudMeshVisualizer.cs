@@ -107,5 +107,24 @@ namespace Cdm.XR.Extensions
                 _indices[i] = i;
             }
         }
+
+
+
+        public void ClearMesh()
+        {
+            if(_mesh != null)
+            {
+                _mesh.Clear();
+            }
+
+            var meshRenderer = GetComponent<MeshRenderer>();
+
+            if(meshRenderer != null)
+            {
+                meshRenderer.enabled = false;
+            }
+
+            Debug.Log("Point Cloud is cleared and mesh hidden");
+        }
     }
 }
