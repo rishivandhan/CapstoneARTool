@@ -82,9 +82,9 @@ def visualize_scan():
 
     return 'Data received successfully.'
 
-@app.route("/visualize_model", methods=['POST'])
+@app.route("/visualize_model", methods=['POST', 'GET'])
 def visualize_model():
-    o3d.visualization.draw_geometries(model_pcd)
+    o3d.visualization.draw_geometries([model_pcd])
 
     return 'Data received successfully.'
 
