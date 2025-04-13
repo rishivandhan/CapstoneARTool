@@ -49,6 +49,7 @@ def localize_gedi():
         return "GeDi has not been loaded!", 500
 
     try:
+        print("Beginning alignment with GeDi...")
         scan_pcd = tools.build_pcd(request)
         transformation = tools.run_gedi(model_pcd, scan_pcd, gedi)
 

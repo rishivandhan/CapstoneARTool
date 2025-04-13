@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 876340188}
   - component: {fileID: 876340187}
   m_Layer: 5
-  m_Name: AfterAllignment
+  m_Name: AfterAlignment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -768,11 +768,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   densePointCloudManager: {fileID: 330510555}
   ARDensePointCloudMeshVisualizer: {fileID: 6517333222250506075, guid: e3fc0bab29a034aae919f6bbdb768bc6, type: 3}
-  body: {fileID: 0}
+  body: {fileID: 4917779118872816890}
   GediRenameText: {fileID: 1395989120}
   DuringAlignmentText: {fileID: 685835902}
   AfterAlignmentText: {fileID: 876340185}
-  serverUrl: http://172.20.184.107:5000/gedi
+  serverUrl: http://192.168.1.9:5000/gedi
 --- !u!1 &1132750388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1518,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1323625287526860427
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917779118872816890}
+  m_Mesh: {fileID: -2432090755550338912, guid: 3507ed1509dd23f41a013d97eca7ef4a, type: 3}
 --- !u!1 &1989247824861341678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,6 +1544,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!23 &2556861576923603487
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917779118872816890}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7eff47ae1f7e045f7a059c82b5d8a317, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2641637179594384010
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1559,6 +1609,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4218000880724705217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917779118872816890}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4681251848913933941
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1567,6 +1632,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989247824861341678}
   m_Mesh: {fileID: -5033257388254679794, guid: bbb40da2e8804489bb159b668f820955, type: 3}
+--- !u!1 &4917779118872816890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4218000880724705217}
+  - component: {fileID: 1323625287526860427}
+  - component: {fileID: 2556861576923603487}
+  m_Layer: 0
+  m_Name: NateRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!23 &5368036861151293328
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1785,3 +1868,4 @@ SceneRoots:
   - {fileID: 7966658446771522449}
   - {fileID: 5632401198735632919}
   - {fileID: 3059511817270779624}
+  - {fileID: 4218000880724705217}
