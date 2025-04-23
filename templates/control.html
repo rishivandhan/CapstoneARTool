@@ -20,14 +20,19 @@
   </form>
   <h2>Set model</h2>
   <form id="changeModel">
-    <label for="changeModel">Enter path:</label>
+    <label for="modelPath">Enter path:</label>
     <input type="text" id="modelPath" name="modelPath" required />
-    <input type="checkbox" id="scaleBox">
-    <label for="scaleBox">Convert inches to meters</label>
-    <br><br>
+    <div>
+      <input type="checkbox" id="scaleBox">
+      <label for="scaleBox">Convert inches to meters</label>
+    </div>
+    <div>
+      <input type="checkbox" id="scaleBox2">
+      <label for="scaleBox2">Convert centimeters to meters</label>
+    </div>
     <button>Submit</button>
-    <a target="_blank" rel="noopener noreferrer" href="/visualize_model">Visualize model</a>
   </form>
+  <a target="_blank" rel="noopener noreferrer" href="/visualize_model">Visualize model</a>
   <h2>Toggle visualization</h2>
   <form id="toggleVisualize" visualize="{{visualize}}">
     <button>Toggle</button>
@@ -45,7 +50,13 @@
       event.preventDefault();
 
       const userText = document.getElementById('modelPath').value;
-      const scale = document.getElementById('scaleBox').checked;
+      scale = 1.0
+
+      if (document.getElementById('scaleBox').checked && !document.getElementById('scaleBox2').checked) {
+        scale = 0.0254
+      } else if (!document.getElementById('scaleBox').checked && document.getElementById('scaleBox2').checked) {
+        scale = 0.01
+      }
 
       try {
         const response = await fetch('/change_model', {

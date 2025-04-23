@@ -133,7 +133,7 @@ def toggle_visualization():
 def change_model():
     global model_pcd, model_path
 
-    scale = 0.0254 if request.json["scale"] else 1.0
+    scale = request.json["scale"]
     model_pcd = tools.obj_to_pcd(f'servertools/models/{request.json["userText"]}', scale)
 
     if not model_pcd:
