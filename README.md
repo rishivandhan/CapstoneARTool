@@ -46,3 +46,11 @@ netsh interface portproxy add v4tov4 listenport=5000 listenaddress=0.0.0.0 conne
 ```
 
 You may also need to let this through your firewall.
+
+References:
+@inproceedings{Poiesi2021,
+  title = {Learning general and distinctive 3D local deep descriptors for point cloud registration},
+  author = {Poiesi, Fabio and Boscaini, Davide},
+  booktitle = {IEEE Trans. on Pattern Analysis and Machine Intelligence},
+  year = {(early access) 2022}
+}
